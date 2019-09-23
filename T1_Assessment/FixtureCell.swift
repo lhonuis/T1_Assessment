@@ -11,6 +11,7 @@ import UIKit
 class FixtureCell: UITableViewCell {
 
     @IBOutlet weak var fixtureTitleLbl: UILabel!
+    @IBOutlet weak var temperatureLbl: UILabel!
     @IBOutlet weak var fixtureSwitch: UISwitch!
     
 }

@@ -82,9 +82,18 @@
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UJ8-0J-TOd">
                                                     <rect key="frame" x="353" y="6.3333333333333321" width="51" height="30.999999999999996"/>
                                                 </switch>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0P-bJ-LtX">
+                                                    <rect key="frame" x="90" y="11.666666666666666" width="42" height="20.333333333333336"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="hde-dd-Vre" secondAttribute="trailing" constant="12" id="73g-S5-bx6"/>
+                                                <constraint firstItem="UJ8-0J-TOd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="c0P-bJ-LtX" secondAttribute="trailing" constant="8" symbolic="YES" id="7AT-Sf-uK8"/>
+                                                <constraint firstItem="c0P-bJ-LtX" firstAttribute="centerY" secondItem="RqW-V2-UYE" secondAttribute="centerY" id="RZL-of-6cb"/>
+                                                <constraint firstItem="c0P-bJ-LtX" firstAttribute="leading" secondItem="RqW-V2-UYE" secondAttribute="leading" constant="90" id="SuN-sa-UgA"/>
                                                 <constraint firstAttribute="trailing" secondItem="UJ8-0J-TOd" secondAttribute="trailing" constant="12" id="WDp-HH-Ya8"/>
                                                 <constraint firstItem="hde-dd-Vre" firstAttribute="centerY" secondItem="RqW-V2-UYE" secondAttribute="centerY" id="sVm-wp-4AA"/>
                                                 <constraint firstItem="hde-dd-Vre" firstAttribute="leading" secondItem="RqW-V2-UYE" secondAttribute="leading" constant="20" id="sq1-gP-kja"/>
@@ -94,6 +103,7 @@
                                         <connections>
                                             <outlet property="fixtureSwitch" destination="UJ8-0J-TOd" id="CPW-og-pKq"/>
                                             <outlet property="fixtureTitleLbl" destination="hde-dd-Vre" id="uwa-Rw-CZU"/>
+                                            <outlet property="temperatureLbl" destination="c0P-bJ-LtX" id="nbW-Xg-L8t"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -117,7 +127,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H2t-ER-fUi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1804" y="170"/>
+            <point key="canvasLocation" x="1802.8985507246377" y="169.56521739130437"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="IW0-pO-oUt">

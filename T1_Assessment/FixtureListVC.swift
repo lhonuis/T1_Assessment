@@ -9,17 +9,43 @@
 import UIKit
 
 class FixtureListVC: UIViewController, UITableViewDataSource {
- 
-    
 
     @IBOutlet weak var tableView: UITableView!
     
     var roomInfo = [RoomDataModel]()
     var roomNumSelected = Int()
+    var tempInfoString: String = "Loading..."
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = roomInfo[roomNumSelected].roomName
+        
         self.tableView.reloadData()
+        getWeatherData()
+    }
+    
+    func getWeatherData() {
+        let resourceURL = "https://www.metaweather.com/api/location/2165352/"
+        
+        guard let url = URL(string: resourceURL) else {
+            print("The URL is invalid.")
+            return
+        }
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            guard let jsonData = data else { return }
+            let decoder = JSONDecoder()
+            do {
+                let weatherInfo = try decoder.decode(Welcome.self, from: jsonData)
+                print("Weather JSON decoded.")
+                self.tempInfoString = String(format: "%.1f", weatherInfo.consolidatedWeather[0].theTemp)
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            } catch let error {
+                print("An error occured.", error)
+            }
+            }.resume()
     }
  
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -30,6 +56,11 @@ class FixtureListVC: UIViewController, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FixtureCell") as? FixtureCell else { return UITableViewCell() }
         
         cell.fixtureTitleLbl.text = roomInfo[roomNumSelected].fixtureNames[indexPath.row]
+        
+        if cell.fixtureTitleLbl.text == "AC" {
+            cell.temperatureLbl.isHidden = false
+            cell.temperatureLbl.text = tempInfoString
+        }
         
         if roomInfo[roomNumSelected].status[indexPath.row] {
             cell.fixtureSwitch.isOn = true
