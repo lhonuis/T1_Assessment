@@ -19,14 +19,12 @@ class FixtureListVC: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = roomInfo[roomNumSelected].roomName
-        
         self.tableView.reloadData()
         getWeatherData()
     }
     
     func getWeatherData() {
         let resourceURL = "https://www.metaweather.com/api/location/2165352/"
-        
         guard let url = URL(string: resourceURL) else {
             print("The URL is invalid.")
             return
@@ -38,7 +36,7 @@ class FixtureListVC: UIViewController, UITableViewDataSource {
                 let weatherInfo = try decoder.decode(Welcome.self, from: jsonData)
                 print("Weather JSON decoded.")
                 self.tempInfoString = String(format: "%.1f", weatherInfo.consolidatedWeather[0].theTemp)
-                
+                self.checkTemp(temp: weatherInfo.consolidatedWeather[0].theTemp)
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -46,6 +44,41 @@ class FixtureListVC: UIViewController, UITableViewDataSource {
                 print("An error occured.", error)
             }
             }.resume()
+    }
+    
+    func checkTemp(temp: Double) {
+        if temp > 25 {
+            let url = URL(string: "https://private-anon-c8ecc4b87c-house4591.apiary-mock.com/weather/cold")!
+            let request = URLRequest(url: url)
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                if let response = response {
+                    print(response)
+                    if let data = data, let body = String(data: data, encoding: .utf8) {
+                        print(body)
+                    }
+                } else {
+                    print(error ?? "Unknown error")
+                }
+                }.resume()
+            
+            roomInfo[0].status[2] = true
+        } else {
+            let url = URL(string: "https://private-anon-c8ecc4b87c-house4591.apiary-mock.com/weather/warm")!
+            let request = URLRequest(url: url)
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                if let response = response {
+                    print(response)
+                    if let data = data, let body = String(data: data, encoding: .utf8) {
+                        print(body)
+                    }
+                } else {
+                    print(error ?? "Unknown error")
+                }
+                }.resume()
+            
+            roomInfo[0].status[2] = false
+        }
+       
     }
  
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
