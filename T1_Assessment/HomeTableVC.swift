@@ -84,7 +84,6 @@ class HomeTableVC: UITableViewController {
                 DispatchQueue.main.async {
                     completion(rooms)
                 }
-                
             } catch let error {
                 print("An error occured.", error)
             }
@@ -101,7 +100,19 @@ class HomeTableVC: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         cell.textLabel?.text = data[indexPath.row].roomName
         
+        if cell.textLabel?.text == "bedroom" {
+            cell.textLabel?.text = "Bedroom"
+        } else if cell.textLabel?.text == "living-room" {
+            cell.textLabel?.text = "Living Room"
+        } else {
+            cell.textLabel?.text = "Kitchen"
+        }
+        
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

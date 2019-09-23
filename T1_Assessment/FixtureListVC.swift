@@ -20,6 +20,13 @@ class FixtureListVC: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = roomInfo[roomNumSelected].roomName
+        if title == "bedroom" {
+            title = "Bedroom"
+        } else if title == "living-room" {
+            title = "Living Room"
+        } else {
+            title = "Kitchen"
+        }
         navigationItem.largeTitleDisplayMode = .never
         self.tableView.tableFooterView = UIView()
         self.tableView.allowsSelection = false
@@ -39,7 +46,7 @@ class FixtureListVC: UIViewController, UITableViewDataSource {
             do {
                 let weatherInfo = try decoder.decode(Welcome.self, from: jsonData)
                 print("Weather JSON decoded.")
-                self.tempInfoString = String(format: "%.1f", weatherInfo.consolidatedWeather[0].theTemp)
+                self.tempInfoString = "Current: " + String(format: "%.1f", weatherInfo.consolidatedWeather[0].theTemp) + "C°"
                 self.checkTemp(temp: weatherInfo.consolidatedWeather[0].theTemp)
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
@@ -64,7 +71,6 @@ class FixtureListVC: UIViewController, UITableViewDataSource {
                     print(error ?? "Unknown error")
                 }
                 }.resume()
-            
             roomInfo[0].status[2] = true
         } else {
             let url = URL(string: "https://private-anon-c8ecc4b87c-house4591.apiary-mock.com/weather/warm")!
@@ -79,10 +85,17 @@ class FixtureListVC: UIViewController, UITableViewDataSource {
                     print(error ?? "Unknown error")
                 }
                 }.resume()
-            
             roomInfo[0].status[2] = false
         }
-       
+        let encoder = JSONEncoder()
+        do {
+            let jsonData = try encoder.encode(roomInfo)
+            let jsonString = String(data: jsonData, encoding: .utf8)
+            userDefaults.set(jsonString, forKey: "isSwitched")
+        }
+        catch {
+            print("Error.")
+        }
     }
  
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -99,7 +112,6 @@ class FixtureListVC: UIViewController, UITableViewDataSource {
             cell.temperatureLbl.text = tempInfoString
             cell.fixtureSwitch.isEnabled = false
         }
-        
         if roomInfo[roomNumSelected].status[indexPath.row] {
             cell.fixtureSwitch.isOn = true
         } else {
