@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home TableVC-->
+        <!--Rooms-->
         <scene sceneID="A2t-o7-6Xa">
             <objects>
                 <tableViewController id="6kC-tw-fm9" customClass="HomeTableVC" customModule="T1_Assessment" customModuleProvider="target" sceneMemberID="viewController">
@@ -45,7 +45,7 @@
                             <outlet property="delegate" destination="6kC-tw-fm9" id="ePd-pb-Tbp"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="qY1-hy-6Tm"/>
+                    <navigationItem key="navigationItem" title="Rooms" id="qY1-hy-6Tm"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rNk-PR-Xsp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -79,7 +79,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UJ8-0J-TOd">
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UJ8-0J-TOd">
                                                     <rect key="frame" x="353" y="6.3333333333333321" width="51" height="30.999999999999996"/>
                                                 </switch>
                                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0P-bJ-LtX">

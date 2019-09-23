@@ -20,6 +20,9 @@ class FixtureListVC: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = roomInfo[roomNumSelected].roomName
+        navigationItem.largeTitleDisplayMode = .never
+        self.tableView.tableFooterView = UIView()
+        self.tableView.allowsSelection = false
         self.tableView.reloadData()
         getWeatherData()
     }
@@ -94,6 +97,7 @@ class FixtureListVC: UIViewController, UITableViewDataSource {
         if cell.fixtureTitleLbl.text == "AC" {
             cell.temperatureLbl.isHidden = false
             cell.temperatureLbl.text = tempInfoString
+            cell.fixtureSwitch.isEnabled = false
         }
         
         if roomInfo[roomNumSelected].status[indexPath.row] {

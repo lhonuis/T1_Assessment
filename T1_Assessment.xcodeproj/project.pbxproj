@@ -108,10 +108,10 @@
 			isa = PBXGroup;
 			children = (
 				BFCE170D233882AC00DC34E8 /* AppDelegate.swift */,
-				BFCE1711233882AD00DC34E8 /* Main.storyboard */,
 				BFCE173B23388CF000DC34E8 /* RoomJSONData.swift */,
 				BFCE173F23388E2C00DC34E8 /* RoomDataModel.swift */,
 				BFCE174D2338B7F200DC34E8 /* WeatherData.swift */,
+				BFCE1711233882AD00DC34E8 /* Main.storyboard */,
 				BFCE173D23388D6000DC34E8 /* HomeTableVC.swift */,
 				BFCE174B2338AE2300DC34E8 /* FixtureListVC.swift */,
 				BFCE17472338ADBE00DC34E8 /* FixtureCell.swift */,

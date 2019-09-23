@@ -15,9 +15,11 @@ class HomeTableVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.tableFooterView = UIView()
+        navigationController?.navigationBar.prefersLargeTitles = true
         loadData()
     }
-    
+  
     func loadData() {
         if let savedData = userDefaults.string(forKey: "isSwitched") {
             let jsonData = savedData.data(using: .utf8)!
