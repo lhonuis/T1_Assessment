@@ -15,6 +15,7 @@ class FixtureListVC: UIViewController, UITableViewDataSource {
     var roomInfo = [RoomDataModel]()
     var roomNumSelected = Int()
     var tempInfoString: String = "Loading..."
+    let userDefaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,6 +116,15 @@ class FixtureListVC: UIViewController, UITableViewDataSource {
         } else {
             toggleFixture(index: sender.tag, status: "off")
             roomInfo[roomNumSelected].status[sender.tag] = false
+        }
+        let encoder = JSONEncoder()
+        do {
+            let jsonData = try encoder.encode(roomInfo)
+            let jsonString = String(data: jsonData, encoding: .utf8)
+            userDefaults.set(jsonString, forKey: "isSwitched")
+        }
+        catch {
+            print("Error.")
         }
     }
     

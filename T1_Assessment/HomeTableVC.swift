@@ -11,15 +11,30 @@ import UIKit
 class HomeTableVC: UITableViewController {
 
     var data = [RoomDataModel]()
+    let userDefaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        getRoomData { (rooms) in
-            self.data = rooms
-            self.tableView.reloadData()
-        }
+        loadData()
+    }
     
+    func loadData() {
+        if let savedData = userDefaults.string(forKey: "isSwitched") {
+            let jsonData = savedData.data(using: .utf8)!
+            let decoder = JSONDecoder()
+            do {
+                let decodedData = try decoder.decode([RoomDataModel].self, from: jsonData)
+                data = decodedData
+            }
+            catch {
+                print("Error.")
+            }
+        } else {
+            getRoomData { (rooms) in
+                self.data = rooms
+                self.tableView.reloadData()
+            }
+        }
     }
 
     func getRoomData(completion: @escaping (_ rooms: [RoomDataModel]) -> Void) {
