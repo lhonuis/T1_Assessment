@@ -16,6 +16,8 @@
 		BFCE173C23388CF000DC34E8 /* RoomJSONData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCE173B23388CF000DC34E8 /* RoomJSONData.swift */; };
 		BFCE173E23388D6000DC34E8 /* HomeTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCE173D23388D6000DC34E8 /* HomeTableVC.swift */; };
 		BFCE174023388E2C00DC34E8 /* RoomDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCE173F23388E2C00DC34E8 /* RoomDataModel.swift */; };
+		BFCE17482338ADBE00DC34E8 /* FixtureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCE17472338ADBE00DC34E8 /* FixtureCell.swift */; };
+		BFCE174C2338AE2300DC34E8 /* FixtureListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCE174B2338AE2300DC34E8 /* FixtureListVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		BFCE173B23388CF000DC34E8 /* RoomJSONData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomJSONData.swift; sourceTree = "<group>"; };
 		BFCE173D23388D6000DC34E8 /* HomeTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableVC.swift; sourceTree = "<group>"; };
 		BFCE173F23388E2C00DC34E8 /* RoomDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomDataModel.swift; sourceTree = "<group>"; };
+		BFCE17472338ADBE00DC34E8 /* FixtureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureCell.swift; sourceTree = "<group>"; };
+		BFCE174B2338AE2300DC34E8 /* FixtureListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureListVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 				BFCE173B23388CF000DC34E8 /* RoomJSONData.swift */,
 				BFCE173F23388E2C00DC34E8 /* RoomDataModel.swift */,
 				BFCE173D23388D6000DC34E8 /* HomeTableVC.swift */,
+				BFCE17472338ADBE00DC34E8 /* FixtureCell.swift */,
+				BFCE174B2338AE2300DC34E8 /* FixtureListVC.swift */,
 				BFCE1714233882AE00DC34E8 /* Assets.xcassets */,
 				BFCE1716233882AE00DC34E8 /* LaunchScreen.storyboard */,
 				BFCE1719233882AE00DC34E8 /* Info.plist */,
@@ -263,8 +269,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFCE173C23388CF000DC34E8 /* RoomJSONData.swift in Sources */,
+				BFCE17482338ADBE00DC34E8 /* FixtureCell.swift in Sources */,
 				BFCE170E233882AC00DC34E8 /* AppDelegate.swift in Sources */,
 				BFCE174023388E2C00DC34E8 /* RoomDataModel.swift in Sources */,
+				BFCE174C2338AE2300DC34E8 /* FixtureListVC.swift in Sources */,
 				BFCE173E23388D6000DC34E8 /* HomeTableVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

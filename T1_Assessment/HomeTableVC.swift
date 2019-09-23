@@ -87,4 +87,10 @@ class HomeTableVC: UITableViewController {
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destVC = segue.destination as! FixtureListVC
+        destVC.roomNumSelected = tableView.indexPathForSelectedRow!.row
+        destVC.roomInfo = data
+    }
+    
 }

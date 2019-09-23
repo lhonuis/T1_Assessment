@@ -51,10 +51,10 @@
             </objects>
             <point key="canvasLocation" x="923.1884057971015" y="169.56521739130437"/>
         </scene>
-        <!--View Controller-->
+        <!--Fixture ListVC-->
         <scene sceneID="fWU-8v-NBi">
             <objects>
-                <viewController id="XKY-8j-MEb" sceneMemberID="viewController">
+                <viewController id="XKY-8j-MEb" customClass="FixtureListVC" customModule="T1_Assessment" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="S1a-YA-AVI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -63,7 +63,7 @@
                                 <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Dw0-6m-4br">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FixtureCell" id="Dw0-6m-4br" customClass="FixtureCell" customModule="T1_Assessment" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Dw0-6m-4br" id="RqW-V2-UYE">
@@ -79,15 +79,27 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UJ8-0J-TOd">
+                                                    <rect key="frame" x="353" y="6.3333333333333321" width="51" height="30.999999999999996"/>
+                                                </switch>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="hde-dd-Vre" secondAttribute="trailing" constant="12" id="73g-S5-bx6"/>
+                                                <constraint firstAttribute="trailing" secondItem="UJ8-0J-TOd" secondAttribute="trailing" constant="12" id="WDp-HH-Ya8"/>
                                                 <constraint firstItem="hde-dd-Vre" firstAttribute="centerY" secondItem="RqW-V2-UYE" secondAttribute="centerY" id="sVm-wp-4AA"/>
                                                 <constraint firstItem="hde-dd-Vre" firstAttribute="leading" secondItem="RqW-V2-UYE" secondAttribute="leading" constant="20" id="sq1-gP-kja"/>
+                                                <constraint firstItem="UJ8-0J-TOd" firstAttribute="centerY" secondItem="RqW-V2-UYE" secondAttribute="centerY" id="t6s-Za-nUw"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="fixtureSwitch" destination="UJ8-0J-TOd" id="CPW-og-pKq"/>
+                                            <outlet property="fixtureTitleLbl" destination="hde-dd-Vre" id="uwa-Rw-CZU"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="XKY-8j-MEb" id="B4p-L7-QBQ"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -99,6 +111,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="65c-V8-3Td"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="1nR-Jj-3Y6" id="k2c-Qd-Qc6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H2t-ER-fUi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
